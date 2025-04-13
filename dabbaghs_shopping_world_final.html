@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dabbagh’s Shopping World</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #111; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #222; }
+    nav a { color: white; padding: 14px 20px; text-decoration: none; }
+    nav a:hover { background: #444; }
+    .section, .brand-section { padding: 20px; display: none; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .product { background: white; padding: 10px; border: 1px solid #ddd; width: 200px; text-align: center; }
+    .product img { width: 100%; height: 150px; object-fit: cover; }
+    .btn { padding: 10px 20px; margin: 10px; background: #0070f3; color: white; border: none; cursor: pointer; }
+    .brand-buttons { text-align: center; margin-top: 20px; }
+    .checkout { margin-top: 40px; text-align: center; }
+  </style>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = 'flex';
+      document.querySelectorAll('.brand-section').forEach(b => b.style.display = 'none');
+    }
+
+    function showBrandSection(id) {
+      document.querySelectorAll('.brand-section').forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = 'flex';
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>Dabbagh’s Shopping World</h1>
+</header>
+
+<nav>
+  <a href="#" onclick="showSection('shirts')">Shirts</a>
+  <a href="#" onclick="showSection('shorts')">Shorts/Pants</a>
+  <a href="#" onclick="showSection('shoes')">Shoes</a>
+</nav>
+
+<!-- Shirts Section -->
+<div class="section" id="shirts">
+  <div class="brand-buttons">
+    <h2>Which brand are you looking for?</h2>
+    <button class="btn" onclick="showBrandSection('nike-shirts')">Nike</button>
+    <button class="btn" onclick="showBrandSection('zara-shirts')">Zara</button>
+    <button class="btn" onclick="showBrandSection('all-shirts')">See All</button>
+  </div>
+</div>
+
+<div class="brand-section" id="nike-shirts">
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Nike+Shirt" />
+    <h3>Nike T-Shirt</h3>
+    <p>Price: 99 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+</div>
+
+<div class="brand-section" id="zara-shirts">
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Zara+Top" />
+    <h3>Zara Casual Top</h3>
+    <p>Price: 89 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+</div>
+
+<div class="brand-section" id="all-shirts">
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Nike+Shirt" />
+    <h3>Nike T-Shirt</h3>
+    <p>Price: 99 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Zara+Top" />
+    <h3>Zara Casual Top</h3>
+    <p>Price: 89 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Shorts Section -->
+<div class="section" id="shorts">
+  <div class="brand-buttons">
+    <h2>Which brand are you looking for?</h2>
+    <button class="btn" onclick="showBrandSection('adidas-shorts')">Adidas</button>
+    <button class="btn" onclick="showBrandSection('zara-shorts')">Zara</button>
+    <button class="btn" onclick="showBrandSection('all-shorts')">See All</button>
+  </div>
+</div>
+
+<div class="brand-section" id="adidas-shorts">
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Adidas+Shorts" />
+    <h3>Adidas Sports Shorts</h3>
+    <p>Price: 119 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+</div>
+
+<div class="brand-section" id="zara-shorts">
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Zara+Shorts" />
+    <h3>Zara Denim Shorts</h3>
+    <p>Price: 99 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+</div>
+
+<div class="brand-section" id="all-shorts">
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Adidas+Shorts" />
+    <h3>Adidas Sports Shorts</h3>
+    <p>Price: 119 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Zara+Shorts" />
+    <h3>Zara Denim Shorts</h3>
+    <p>Price: 99 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Shoes Section -->
+<div class="section" id="shoes">
+  <div class="brand-buttons">
+    <h2>Which brand are you looking for?</h2>
+    <button class="btn" onclick="showBrandSection('puma-shoes')">Puma</button>
+    <button class="btn" onclick="showBrandSection('nike-shoes')">Nike</button>
+    <button class="btn" onclick="showBrandSection('all-shoes')">See All</button>
+  </div>
+</div>
+
+<div class="brand-section" id="puma-shoes">
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Puma+Shoes" />
+    <h3>Puma Running Shoes</h3>
+    <p>Price: 199 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+</div>
+
+<div class="brand-section" id="nike-shoes">
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Nike+Shoes" />
+    <h3>Nike Air Max</h3>
+    <p>Price: 249 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+</div>
+
+<div class="brand-section" id="all-shoes">
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Puma+Shoes" />
+    <h3>Puma Running Shoes</h3>
+    <p>Price: 199 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="https://via.placeholder.com/200x150?text=Nike+Shoes" />
+    <h3>Nike Air Max</h3>
+    <p>Price: 249 AED</p>
+    <button class="btn" onclick="addToCart(this.parentElement.querySelector('h3').textContent, this.parentElement.querySelector('p').textContent.match(/\d+/)[0])">Add to Cart</button>
+  </div>
+</div>
+
+<div class="checkout">
+  <h2>Checkout</h2>
+  <button class="btn">Pay with Apple Pay</button>
+  <button class="btn">Pay with PayPal</button>
+  <button class="btn">Cash on Delivery</button>
+</div>
+
+
+<script>
+  const cart = [];
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    alert(name + " added to cart!");
+    updateCartDisplay();
+  }
+
+  function updateCartDisplay() {
+    const cartContainer = document.getElementById("cart-items");
+    cartContainer.innerHTML = "";
+    let total = 0;
+    cart.forEach(item => {
+      const div = document.createElement("div");
+      div.textContent = item.name + " - " + item.price + " AED";
+      cartContainer.appendChild(div);
+      total += parseFloat(item.price);
+    });
+    document.getElementById("total-price").textContent = "Total: " + total.toFixed(2) + " AED";
+  }
+
+  function goToCheckout() {
+    document.querySelectorAll('.section, .brand-section').forEach(el => el.style.display = 'none');
+    document.getElementById('checkout-page').style.display = 'block';
+  }
+</script>
+
+<!-- Shopping Cart + Checkout Page -->
+<div class="checkout" id="checkout-page" style="display:none;">
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <h3 id="total-price">Total: 0 AED</h3>
+  <button class="btn">Pay with Apple Pay</button>
+  <button class="btn">Pay with PayPal</button>
+  <button class="btn">Cash on Delivery</button>
+</div>
+
+
+<script>
+  function toggleCheckoutButton(show) {
+    document.getElementById("floating-checkout").style.display = show ? "block" : "none";
+  }
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    alert(name + " added to cart!");
+    updateCartDisplay();
+    toggleCheckoutButton(true);
+  }
+</script>
+
+<style>
+  #floating-checkout {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+  }
+</style>
+
+<button id="floating-checkout" onclick="goToCheckout()">Go to Checkout</button>
+
+</body>
+
+</html>
